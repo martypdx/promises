@@ -4,14 +4,14 @@ const copyDir = require('../lib/copy-dir');
 
 const { CI, HOME } = process.env;
 const BASE_DIR = CI ? HOME : __dirname;
-const COPY_FOLDER = path.join(BASE_DIR, 'copy-dir');
-const SRC_DIR = path.join(COPY_FOLDER, 'src-dir'); 
-const DEST_DIR = path.join(COPY_FOLDER, 'dest-dir');
+const TEST_FOLDER = path.join(BASE_DIR, 'copy-dir');
+const SRC_DIR = path.join(TEST_FOLDER, 'src-dir'); 
+const DEST_DIR = path.join(TEST_FOLDER, 'dest-dir');
 
 describe('copy dir', () => {
 
   beforeEach(async () => {
-    await fs.rm(COPY_FOLDER, { force: true, recursive: true });
+    await fs.rm(TEST_FOLDER, { force: true, recursive: true });
     await fs.mkdir(SRC_DIR, { recursive: true });
     await Promise.all([
       fs.writeFile(path.join(SRC_DIR, 'file1.txt'), 'file 1'),
