@@ -2,6 +2,8 @@ const fs = require('fs/promises');
 const path = require('path');
 const copyFile = require('../lib/copy-file');
 
+console.log('home', process.env.HOME);
+console.log('__dirname', __dirname);
 const COPY_FOLDER = path.join(__dirname, 'copy');
 const FILE_TO_COPY = path.join(COPY_FOLDER, 'file-to-copy.txt'); 
 const COPIED_FILE = path.join(COPY_FOLDER, 'copied-file.txt');
