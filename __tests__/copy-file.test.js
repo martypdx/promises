@@ -13,8 +13,8 @@ describe('copy file', () => {
 
   it('from src to dest', async () => {
     await copyFile(FILE_TO_COPY, COPIED_FILE);
-    // const copied = await fs.readFile(COPIED_FILE, { encoding: 'utf-8' });
-    // expect(copied).toBe('Copy me');
+    const copied = await fs.readFile(COPIED_FILE, { encoding: 'utf-8' });
+    expect(copied).toBe('Copy me');
   });
   
   it('returns Bad File error when no src', async () => {
