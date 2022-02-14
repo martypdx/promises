@@ -16,5 +16,18 @@ describe('copy file', () => {
     const copied = await fs.readFile(COPIED_FILE, { encoding: 'utf-8' });
     expect(copied).toBe('Copy me');
   });
+  
+  it('returns Bad File error when no src', async () => {
+    expect.assertions(1);
+    const badFileName = path.join(COPY_FOLDER, 'bad-file.txt');
+
+    try {
+      await copyFile(badFileName, COPIED_FILE);
+    }
+    catch(err) {
+      expect(err.message).toBe('bad file name');
+    }
+  });
+  
 
 });
